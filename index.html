@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Forest Escape</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="ui-layer">
+            <div id="top-bar">
+                <!-- Buttons kept in DOM for JS event binding but visually hidden -->
+                <button id="sound-btn" class="btn-green" aria-hidden="true"></button>
+                <button id="pause-btn" class="btn-green" aria-hidden="true"></button>
+            </div>
+            <div id="hud-left">
+                <!-- Lives as hearts, populated by updateUI() -->
+            </div>
+            <div id="hud-center">
+                <!-- Day/Time -->
+            </div>
+            <div id="hud-right">
+                <!-- Control hints -->
+            </div>
+            <div id="start-screen" class="screen">
+                <div id="start-content">
+                    <h1>SURVIVE THE FOREST</h1>
+                    <div id="enter-forest-box">
+                        <button id="start-btn">ENTER THE FOREST</button>
+                        <div class="start-prompt">PRESS SPACE TO START</div>
+                    </div>
+                </div>
+
+                <div id="controls-bar">
+                    <!-- V85: Only movement hint visible on start screen -->
+                    <div class="control-group">
+                        <span>Use <span class="key-badge">WASD</span> or <span class="key-badge">ARROWS</span> to
+                            Move</span>
+                    </div>
+                </div>
+
+                <!-- V51: Meta Stats Container - Keeping subtle if needed, or hiding if clutter -->
+                <div id="meta-stats" style="margin-top: 15px; opacity: 0.7;"></div>
+            </div>
+            <div id="pause-screen" class="screen w-hidden">
+                <h1>PAUSED</h1>
+                <div class="menu-item-group">
+                    <button id="resume-btn">RESUME ADVENTURE</button>
+                    <div class="subtitle">Press "Space" to resume</div>
+                </div>
+                <div class="menu-item-group">
+                    <button id="quit-btn">EXIT TO MAIN MENU</button>
+                    <div class="subtitle">Press "Esc" twice to exit</div>
+                </div>
+            </div>
+            <div id="game-over-screen" class="screen w-hidden">
+                <h1>YOU DIED</h1>
+                <p id="final-score" style="font-size: 1.4rem; max-width: 600px; text-align: center; line-height: 1.6;">
+                    ...</p>
+                <p class="controls-hint">Press SPACE to Restart</p>
+                <button id="restart-btn">TRY AGAIN</button>
+            </div>
+        </div>
+    </div>
+    <script src="src/game_bundle_v76.js"></script>
+
+</body>
+
+</html>
